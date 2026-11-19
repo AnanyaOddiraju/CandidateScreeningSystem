@@ -1,0 +1,35 @@
+cd backend
+
+py -0p
+
+py -3.14 -m venv venv
+venv\Scripts\Activate.ps1
+
+python -m pip install --upgrade pip
+pip install -r requirements.txt
+
+uvicorn app.main:app --reload
+
+winget install Schniz.fnm
+# In lieu of restarting the shell
+fnm env --use-on-cd --shell powershell | Out-String | Invoke-Expression
+# Download and install Node.js:
+fnm install --use 26
+# Verify the Node.js version:
+node -v # Should print "v26.13.1".
+# Verify npm version:
+npm -v # Should print "11.20.0".
+
+npm create vite@latest frontend -- --template react-ts
+
+cd frontend
+
+npm install
+
+npm install axios lucide-react
+
+npm install -D tailwindcss @tailwindcss/vite\
+
+npm install react-router-dom
+
+npm run dev
